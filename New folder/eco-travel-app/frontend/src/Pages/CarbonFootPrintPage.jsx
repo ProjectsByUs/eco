@@ -1,13 +1,14 @@
-import React from "react";
-import CarbonFootPrint from "../Components/CarbonFootPrint";
+const { default: CarbonFootPrint } = require("../Components/CarbonFootPrint");
 
-const CarbonFootprintPage = () => {
+const CarbonFootPrintPage = () => {
     return (
-        <div className="p-4">
-            <h1 className="text-2xl font-bold">Carbon Footprint Comparison</h1>
-            <CarbonFootPrint />
+        <div>
+            <h1>
+                Carbon FootPrint Estimator Page
+            </h1>
+            <CarbonFootPrint></CarbonFootPrint>
         </div>
-    );
+    )
 };
 
-export default CarbonFootprintPage;
+export default CarbonFootPrintPage;
