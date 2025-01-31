@@ -8,6 +8,7 @@ const CarbonFootPrint = () => {
     const [co2e, setCo2e] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
+    const url = 'http://localhost:5000/api/carbon-footprint';
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -15,11 +16,13 @@ const CarbonFootPrint = () => {
         setError('');
         setCo2e(null);
 
+        const data = {
+            "energy": energy,
+            "energy_unit": energyUnit
+        };
+
         try {
-            const response = await axios.post('http://localhost:5000/api/carbon-footprint', {
-                energy,
-                energy_unit: energyUnit
-            });
+            const response = await axios.post(url, data);
 
             if (response.data && response.data.co2e) {
                 setCo2e(response.data.co2e); // Assuming the API returns 'co2e'
